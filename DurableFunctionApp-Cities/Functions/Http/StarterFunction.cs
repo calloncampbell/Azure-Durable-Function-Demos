@@ -3,6 +3,7 @@ using DurableFunctionApp1.Functions.Durable.Orchestrator;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.DurableTask.Client;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace DurableFunctionApp1.Functions.Http
@@ -10,7 +11,7 @@ namespace DurableFunctionApp1.Functions.Http
     public class StarterFunction
     {
         private readonly ILogger _logger;
-
+        
         public StarterFunction(ILoggerFactory loggerFactory)
         {
             _logger = loggerFactory.CreateLogger<StarterFunction>();
@@ -19,10 +20,11 @@ namespace DurableFunctionApp1.Functions.Http
         [Function(nameof(StarterFunction))]
         public async Task<HttpResponseData> RunAsync(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-            [DurableClient] DurableTaskClient client,
+            [DurableClient(TaskHub = "%DurableTaskHubName%")] DurableTaskClient client,
             FunctionContext executionContext)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            var taskHubName = Environment.GetEnvironmentVariable("DurableTaskHubName", EnvironmentVariableTarget.Process);
+            _logger.LogInformation("StarterFunction triggered on DurableTaskHub: {taskHubName}", taskHubName);
 
             ILogger logger = executionContext.GetLogger(nameof(StarterFunction));
 
