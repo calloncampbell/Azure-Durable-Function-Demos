@@ -4,6 +4,7 @@
     "durableTask": {
       "HubName": "%DurableTaskHubName%",
       "storageProvider": {
+        "type": "azureStorage",
         "connectionStringName": "DurableManagementStorage",
         "controlQueueBatchSize": 32,
         "controlQueueBufferThreshold": 256,
