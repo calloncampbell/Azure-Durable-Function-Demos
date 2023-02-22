@@ -1,0 +1,25 @@
+### Search for person 'luke'
+@personName=luke
+GET https://swapi.dev/api/people?search={{personName}}
+
+### Get planet 1
+GET https://swapi.dev/api/planets/1/
+
+### Get species 1
+GET https://swapi.dev/api/species/1/
+
+### Search for planet 'tat'
+@planetName=tat
+GET https://swapi.dev/api/planets?search={{planetName}}
+
+### Get people 1
+GET https://swapi.dev/api/people/1/
+
+
+
+
+### Demo Durable Function Orchestration
+POST http://localhost:7197/api/start/GetPlanetResidentsOrchestrator
+Content-Type: application/json
+
+tat
