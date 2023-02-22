@@ -2,8 +2,9 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "EventHubsConnection": "SingleHost",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "DurableTaskHubName": "TaskHubCitiesDev2",
+    "DurableTaskHubName": "TaskHubCitiesDev3",
     "DurableManagementStorage": "UseDevelopmentStorage=true",
     "SwapiBaseUrl": "https://swapi.dev/api/"
   }
