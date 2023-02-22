@@ -20,16 +20,12 @@ namespace DurableFunctionApp1.Functions.Http
         [Function(nameof(StarterFunction))]
         public async Task<HttpResponseData> RunAsync(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-            [DurableClient(TaskHub = "%DurableTaskHubName%")] DurableTaskClient client,
-            FunctionContext executionContext)
+            [DurableClient(TaskHub = "%DurableTaskHubName%")] DurableTaskClient client)
         {
             var taskHubName = Environment.GetEnvironmentVariable("DurableTaskHubName", EnvironmentVariableTarget.Process);
-            _logger.LogInformation("StarterFunction triggered on DurableTaskHub: {taskHubName}", taskHubName);
-
-            ILogger logger = executionContext.GetLogger(nameof(StarterFunction));
 
             string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(OrchestratorFunction));
-            logger.LogInformation("Created new orchestration with instance ID = {instanceId}", instanceId);
+            _logger.LogInformation("Created new orchestration with instance ID = {instanceId} on task hub {taskHubName}.", instanceId, taskHubName);
 
             return client.CreateCheckStatusResponse(req, instanceId);
         }
