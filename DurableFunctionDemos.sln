@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurableFunctionApp-Cities", "DurableFunctionApp-Cities\DurableFunctionApp-Cities.csproj", "{53AE46C3-49F7-465A-98F5-3070FAF2F6C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurableFunctionApp-StarWars", "DurableFunctionApp-StarWars\DurableFunctionApp-StarWars.csproj", "{8496A462-9914-45A3-A211-CB56882D11B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{53AE46C3-49F7-465A-98F5-3070FAF2F6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53AE46C3-49F7-465A-98F5-3070FAF2F6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53AE46C3-49F7-465A-98F5-3070FAF2F6C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8496A462-9914-45A3-A211-CB56882D11B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8496A462-9914-45A3-A211-CB56882D11B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8496A462-9914-45A3-A211-CB56882D11B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8496A462-9914-45A3-A211-CB56882D11B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

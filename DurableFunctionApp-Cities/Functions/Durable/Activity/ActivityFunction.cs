@@ -17,8 +17,7 @@ namespace DurableFunctionApp1.Functions.Durable.Activity
         [Function(nameof(ActivityFunction))]
         public string Run([ActivityTrigger] string cityName, FunctionContext executionContext)
         {
-            ILogger logger = executionContext.GetLogger(nameof(ActivityFunction));
-            logger.LogInformation("Saying hello to {name}", cityName);
+            _logger.LogInformation("Saying hello to {name}", cityName);
             return $"Hello, {cityName}!";
         }
     }
